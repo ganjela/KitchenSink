@@ -1,0 +1,32 @@
+<div *ngFor="let user of Users">
+  <ul>
+    <li *ngIf="user.age > 20">
+       <p>Name: {{ user.firstname }} {{ user.lastname }}</p>
+       <p>Age: {{ user.age }}
+       </p>
+    </li>
+  </ul>
+</div>
+
+
+<div *ngFor = "let user of parentUsers">
+  <div>
+    <app-user [inputData]="user"></app-user>
+  </div>
+</div> 
+<h1>Date is passed from Parent to Child</h1>
+
+<app-user (inputDataChange)="onInputDataChange($event)"></app-user>
+<div *ngFor="let user of childUsers">
+  <div>
+    <p>First Name: {{ user.Id }}</p>
+    <p>First Name: {{ user.Firstname }}</p>
+    <p>Last Name: {{ user.Lastname }}</p>
+    <p>Date of Birth: {{ user.DateOfBirth }}</p>
+    <p>Phone Number: {{ user.PhoneNumber }}</p>
+    <p>Email: {{ user.Email}}</p>
+  </div>
+</div>
+<h1>Date is passed from Child to Parent</h1>
+
+
